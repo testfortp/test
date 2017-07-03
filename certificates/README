@@ -1,0 +1,12 @@
+# Generate certificate-key pair using config
+openssl req  -nodes -new -x509 -newkey rsa:2048 -keyout ssl.key -out ssl.crt -config ssl.conf -subj "/" -days 1111
+
+# Generate expired cert
+openssl req  -nodes -new -x509 -newkey rsa:2048 -keyout ssl.key -out ssl.crt -config ssl.conf -subj "/" -days -42
+
+# Set subject field
+req  -nodes -new -x509 -newkey rsa:2048 -keyout ssl.key -out ssl.crt -config ssl.conf -subj "/C=NL/ST=Zuid Holland/L=Rotterdam/O=Sparkling Network/OU=IT Department/CN=ok.ru" -days 3000
+
+# View certificate
+openssl x509 -in ssl.crt -text -noout
+
